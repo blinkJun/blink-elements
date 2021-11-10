@@ -1,0 +1,31 @@
+{
+  "name": "@blink-elements/docs",
+  "version": "1.0.0",
+  "description": "blink-elements ui frame",
+  "scripts": {
+    "dev": "vitepress dev .",
+    "build": "vitepress build .",
+    "serve": "vitepress serve .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ui",
+    "frame"
+  ],
+  "author": "530080147@qq.com",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/markdown-it": "^12.2.3",
+    "@types/node": "^16.11.7",
+    "@vue/compiler-sfc": "^3.2.21",
+    "@vueuse/core": "^6.8.0",
+    "chalk": "^4.1.2",
+    "escape-html": "^1.0.3",
+    "markdown-it": "^12.2.0",
+    "markdown-it-container": "^3.0.0",
+    "normalize.css": "^8.0.1",
+    "prismjs": "^1.25.0",
+    "sass": "^1.43.4",
+    "vitepress": "0.20.1"
+  }
+}

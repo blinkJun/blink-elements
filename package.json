@@ -3,10 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "types": "./typings/*.d.ts",
   "scripts": {
+    "docs:dev":"pnpm -C docs dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@blink-elements/components":"workspace:*",
+    "pnpm": "^6.20.4",
+    "vitepress": "^0.20.1",
+    "vue": "^3.2.21"
+  }
 }
