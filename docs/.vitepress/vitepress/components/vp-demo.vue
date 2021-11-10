@@ -1,17 +1,15 @@
 <script setup lang="ts">
-import { computed, toRef, ref, getCurrentInstance } from 'vue'
+import { computed, toRef } from 'vue'
 import { useClipboard } from '@vueuse/core'
 import { useToggle } from '../composables/toggle'
 import { useSourceCode } from '../composables/source-code'
 
 import GithubIcon from './icons/github.vue'
 import SourceCodeIcon from './icons/source-code.vue'
-import CodepenIcon from './icons/codepen.vue'
 import CopyIcon from './icons/copy-icon.vue'
 
 import Example from './demo/vp-example.vue'
 import SourceCode from './demo/vp-source-code.vue'
-import Codepen from './demo/vp-codepen.vue'
 
 const props = defineProps({
   // source is encoded via encodeURIComponent
@@ -20,26 +18,6 @@ const props = defineProps({
     required: true,
   },
   path: {
-    type: String,
-    required: true,
-  },
-  css: {
-    type: String,
-    required: true,
-  },
-  cssPreProcessor: {
-    type: String,
-    required: true,
-  },
-  js: {
-    type: String,
-    required: true,
-  },
-  jsPreProcessor: {
-    type: String,
-    required: true,
-  },
-  html: {
     type: String,
     required: true,
   },
@@ -56,8 +34,6 @@ const props = defineProps({
   },
 })
 
-const vm = getCurrentInstance()
-
 const { copy, isSupported } = useClipboard({
   source: decodeURIComponent(props.rawSource),
   read: false,
@@ -66,6 +42,7 @@ const { copy, isSupported } = useClipboard({
 const [sourceVisible, setSourceVisible] = useToggle()
 const demoSourceUrl = useSourceCode(toRef(props, 'path'))
 
+// 匹配对应的示例
 const formatPathDemos = computed(() => {
   const demos = {}
 
@@ -77,12 +54,9 @@ const formatPathDemos = computed(() => {
   return demos
 })
 
-const codepenRef = ref()
-const decodedDescription = computed(() => decodeURIComponent(props.description))
+// 生成描述
+const decodedDescription = computed(() => decodeURIComponent(props.description||''))
 
-const onCodepenClicked = () => {
-  codepenRef.value.submit?.()
-}
 
 const copyCode = async () => {
   if (!isSupported) {
@@ -91,7 +65,7 @@ const copyCode = async () => {
   try {
     await copy()
     alert('复制成功！')
-  } catch (e: Error) {
+  } catch (e: any) {
     alert(e.message)
   }
 }
@@ -140,13 +114,6 @@ const copyCode = async () => {
       cursor:pointer;
       color: var(--text-color);
     }
-    .op-btn {
-      margin: 0 0.5rem;
-      cursor: pointer;
-    }
-  }
-  .el-divider {
-    margin: 0;
   }
 }
 </style>

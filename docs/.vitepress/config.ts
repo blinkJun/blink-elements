@@ -18,6 +18,7 @@ export default {
     ],
   ] as HeadConfig[],
   themeConfig: {
+    repo: 'blink-elements',
     logo: '/images/logo.png',
     nav: [
       { text: '指南', link: '/md/guide/',activeMatch: '^/guide/' },
