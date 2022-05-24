@@ -26,6 +26,6 @@
     "normalize.css": "^8.0.1",
     "prismjs": "^1.25.0",
     "sass": "^1.43.4",
-    "vitepress": "0.20.1"
+    "vitepress": "0.22.4"
   }
 }
