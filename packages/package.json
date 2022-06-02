@@ -2,8 +2,8 @@
   "name": "@blink-elements/components",
   "version": "1.0.0",
   "description": "components blink-elements",
-  "main": "dist/blink-components.umd.js",
-  "module": "dist/blink-components.esm.js",
+  "main": "dist/blink-elements.umd.js",
+  "module": "dist/blink-elements.esm.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build:esm": "rollup --config build/rollup.esm.config.js",

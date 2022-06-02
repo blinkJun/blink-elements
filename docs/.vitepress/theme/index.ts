@@ -10,7 +10,7 @@ import VPDemo from '../vitepress/components/vp-demo.vue'
 
 import blinkElements from '@blink-elements/components'
 
-
+import "@blink-elements/components/dist/bundle.css"
 
 export default {
   ...DefaultTheme,
