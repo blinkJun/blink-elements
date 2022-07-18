@@ -1,14 +1,14 @@
 <template>
-  <div class="title" >{{ title }}</div>
+  <div class="title">{{ title }}</div>
 </template>
 
-<script setup >
+<script setup lang="ts" >
 import { ref } from "vue";
 const title = ref("hello message");
 </script>
 
 <style scoped >
-.title{
-  color:red
+.title {
+  color: yellow
 }
 </style>
