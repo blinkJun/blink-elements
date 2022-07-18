@@ -1,5 +1,5 @@
 {
-  "name": "@blink-elements/components",
+  "name": "blink-elements",
   "version": "1.0.0",
   "description": "components blink-elements",
   "main": "dist/blink-elements.umd.js",

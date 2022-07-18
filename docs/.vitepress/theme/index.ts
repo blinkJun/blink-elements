@@ -2,7 +2,6 @@ import {App} from 'vue'
 
 import 'normalize.css'
 import '../style/vars.scss'
-
 // .vitepress/theme/index.js
 import DefaultTheme from 'vitepress/dist/client/theme-default/index'
 
@@ -10,7 +9,7 @@ import VPDemo from '../vitepress/components/vp-demo.vue'
 
 import blinkElements from '@blink-elements/components'
 
-import "@blink-elements/components/dist/bundle.css"
+// import "@blink-elements/components/dist/bundle.css"
 
 export default {
   ...DefaultTheme,
