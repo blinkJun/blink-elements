@@ -1,1 +1,1 @@
-export * from "@blink-elements/components";
+export * from "../components";

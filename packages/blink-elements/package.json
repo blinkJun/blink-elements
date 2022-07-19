@@ -19,8 +19,7 @@
   "author": "530080147@qq.com",
   "license": "ISC",
   "dependencies":{
-    "vue": "^3.2.36",
-    "@blink-elements/components": "workspace:*"
+    "vue": "^3.2.36"
   },
   "devDependencies": {
     "@rollup/plugin-json": "^4.1.0",

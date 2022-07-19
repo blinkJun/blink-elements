@@ -67,7 +67,6 @@ importers:
 
   packages/blink-elements:
     specifiers:
-      '@blink-elements/components': workspace:*
       '@rollup/plugin-json': ^4.1.0
       '@vue/compiler-sfc': ^3.2.21
       rimraf: ^3.0.2
@@ -78,7 +77,6 @@ importers:
       typescript: 4.7.2
       vue: ^3.2.36
     dependencies:
-      '@blink-elements/components': link:../components
       vue: 3.2.36
     devDependencies:
       '@rollup/plugin-json': 4.1.0_rollup@2.75.4
