@@ -13,28 +13,35 @@ export type EasingFunc = (
 
 // 平滑
 export const linear: EasingFunc = (progress, start, range, duration) => {
-  const percent = progress / duration;
-  return range * percent + start;
+  const x = progress / duration;
+  const y = x;
+  return range * y + start;
 };
 
 // 缓入
 export const easeIn: EasingFunc = (progress, start, range, duration) => {
-  const percent = progress / duration;
-  return range * percent * percent + start;
+  const x = progress / duration;
+  const y = x * x;
+  return range * y + start;
 };
 
 // 缓出
 export const easeOut: EasingFunc = (progress, start, range, duration) => {
-  const percent = progress / duration;
-  return -range * percent * (percent - 2) + start;
+  const x = progress / duration;
+  const y = -x * (x - 2);
+  return range * y + start;
 };
 
 // 缓入缓出
 export const easeInOut: EasingFunc = (progress, start, range, duration) => {
-  const percent = progress / duration;
-  if (percent < 1) {
-    return easeIn(progress, start, range, duration);
+  if (progress < duration / 2) {
+    return easeIn(progress, start, range / 2, duration / 2);
   } else {
-    return easeOut(progress, start, range, duration);
+    return easeOut(
+      progress - duration / 2,
+      start + range / 2,
+      range / 2,
+      duration / 2
+    );
   }
 };
