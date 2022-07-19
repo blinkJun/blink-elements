@@ -13,28 +13,31 @@ interface Options {
   prefix?: string;
   suffix?: string;
   decimal?: string;
+  duration?: number;
 }
 
 interface Result {
   value: Ref<number>;
   label: Ref<string>;
+  updateEaseFunc: (easeFunc: EasingFunc) => void;
 }
 
-export const useCountTo = (
-  value: Ref<number>,
-  options: Options = {
-    decimals: 2,
-    separator: ",",
-    decimal: ".",
-    prefix: "",
-    suffix: "",
-  }
-): Result => {
+export const useCountTo = (value: Ref<number>, options: Options): Result => {
   // 避免重复触发的id
   let effectId = 0;
+  const {
+    decimals = 2,
+    decimal = ".",
+    separator = ",",
+    prefix = "",
+    suffix = "",
+    duration = 1500,
+  } = options;
+  let easeFunc = options.easeFunc || easeInOut;
 
-  const { decimals, decimal, separator, prefix, suffix } = options;
-  const easeFunc = options.easeFunc || easeInOut;
+  const updateEaseFunc = (newEaseFunc) => {
+    easeFunc = newEaseFunc;
+  };
 
   // 格式化数值
   const formatNumber = (num: number): string => {
@@ -61,6 +64,7 @@ export const useCountTo = (
     const thisEffectId = effectId;
     const endValue = value.value;
     const startValue = newVal.value;
+    const range = endValue - startValue;
 
     const countDown = startValue >= endValue;
     let startTimestamp: number | null;
@@ -90,9 +94,6 @@ export const useCountTo = (
       // 计算当前时间所在位置
       startTimestamp = startTimestamp || Date.now();
       const progress = Date.now() - startTimestamp;
-      const startValue = newVal.value;
-      const range = endValue - startValue;
-      const duration = 3000;
       newVal.value = easeFunc(progress, startValue, range, duration);
       newValLabel.value = formatNumber(newVal.value);
 
@@ -101,5 +102,5 @@ export const useCountTo = (
     };
     requestAnimationFrame(countFunc);
   });
-  return { value: newVal, label: newValLabel };
+  return { value: newVal, label: newValLabel, updateEaseFunc };
 };

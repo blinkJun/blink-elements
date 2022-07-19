@@ -27,7 +27,8 @@ export const easeIn: EasingFunc = (progress, start, range, duration) => {
 
 // 缓出
 export const easeOut: EasingFunc = (progress, start, range, duration) => {
-  const x = progress / duration;
+  let x = progress / duration;
+  x = x > 1 ? 1 : x;
   const y = -x * (x - 2);
   return range * y + start;
 };

@@ -31,6 +31,7 @@
   "dependencies": {
     "blink-elements": "workspace:*",
     "@blink-elements/components": "workspace:*",
-    "@blink-elements/hooks": "workspace:*"
+    "@blink-elements/hooks": "workspace:*",
+    "@blink-elements/utils": "workspace:*"
   }
 }
