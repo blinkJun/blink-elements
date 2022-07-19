@@ -27,5 +27,10 @@
     "prismjs": "^1.25.0",
     "sass": "^1.43.4",
     "vitepress": "0.22.4"
+  },
+  "dependencies": {
+    "blink-elements": "workspace:*",
+    "@blink-elements/components": "workspace:*",
+    "@blink-elements/hooks": "workspace:*"
   }
 }

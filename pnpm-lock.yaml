@@ -4,10 +4,8 @@ importers:
 
   .:
     specifiers:
-      '@blink-elements/components': workspace:*
       '@typescript-eslint/eslint-plugin': ^5.3.1
       '@typescript-eslint/parser': ^5.3.1
-      blink-elements: workspace:*
       eslint: ^8.2.0
       eslint-config-prettier: ^8.3.0
       eslint-define-config: ^1.1.3
@@ -19,10 +17,8 @@ importers:
       vitepress: ^0.20.1
       vue: ^3.2.21
     devDependencies:
-      '@blink-elements/components': link:packages/components
       '@typescript-eslint/eslint-plugin': 5.27.0_dszb5tb7atwkjjijmmov4qhi7i
       '@typescript-eslint/parser': 5.27.0_xztl6dhthcahlo6akmb2bmjmle
-      blink-elements: link:packages/blink-elements
       eslint: 8.16.0
       eslint-config-prettier: 8.5.0_eslint@8.16.0
       eslint-define-config: 1.5.0
@@ -36,10 +32,13 @@ importers:
 
   docs:
     specifiers:
+      '@blink-elements/components': workspace:*
+      '@blink-elements/hooks': workspace:*
       '@types/markdown-it': ^12.2.3
       '@types/node': ^16.11.7
       '@vue/compiler-sfc': ^3.2.21
       '@vueuse/core': ^6.8.0
+      blink-elements: workspace:*
       chalk: ^4.1.2
       escape-html: ^1.0.3
       markdown-it: ^12.2.0
@@ -48,6 +47,10 @@ importers:
       prismjs: ^1.25.0
       sass: ^1.43.4
       vitepress: 0.22.4
+    dependencies:
+      '@blink-elements/components': link:../packages/components
+      '@blink-elements/hooks': link:../packages/hooks
+      blink-elements: link:../packages/blink-elements
     devDependencies:
       '@types/markdown-it': 12.2.3
       '@types/node': 16.11.38
@@ -64,6 +67,7 @@ importers:
 
   packages/blink-elements:
     specifiers:
+      '@blink-elements/components': workspace:*
       '@rollup/plugin-json': ^4.1.0
       '@vue/compiler-sfc': ^3.2.21
       rimraf: ^3.0.2
@@ -74,6 +78,7 @@ importers:
       typescript: 4.7.2
       vue: ^3.2.36
     dependencies:
+      '@blink-elements/components': link:../components
       vue: 3.2.36
     devDependencies:
       '@rollup/plugin-json': 4.1.0_rollup@2.75.4
@@ -86,6 +91,12 @@ importers:
       typescript: 4.7.2
 
   packages/components:
+    specifiers: {}
+
+  packages/hooks:
+    specifiers: {}
+
+  packages/utils:
     specifiers: {}
 
 packages:
@@ -477,7 +488,7 @@ packages:
       vite: ^2.5.10
       vue: ^3.2.25
     dependencies:
-      vite: 2.9.9_sass@1.52.1
+      vite: 2.9.9
       vue: 3.2.36
     dev: true
 

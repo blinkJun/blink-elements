@@ -51,9 +51,7 @@ export const mdPlugin = (md: MarkdownIt) => {
           if (existingScriptIndex === -1) {
             hoistedTags.push(`
               <script setup>
-                const demos = import.meta.globEager('../../examples/${
-                  sourceFile.split('/')[0]
-                }/*.vue')
+                const demos = import.meta.globEager('../../examples/**/*.vue')
               </script>
             `)
           }

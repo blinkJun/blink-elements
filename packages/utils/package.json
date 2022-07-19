@@ -1,0 +1,11 @@
+{
+  "name": "@blink-elements/utils",
+  "version": "1.0.0",
+  "description": "components blink-elements utils",
+  "keywords": [
+    "vue3",
+    "elements"
+  ],
+  "author": "530080147@qq.com",
+  "license": "ISC"
+}
